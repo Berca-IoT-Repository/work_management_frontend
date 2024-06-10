@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/xrange.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <style>
+      #container {
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      const oneHour = 3600000,
+        red = "#fa7d6f",
+        green = "#93d594",
+        blue = "#72baeb",
+        data = [
+          {
+            value: blue,
+            timeStamp: oneHour * 3,
+          },
+          {
+            value: red,
+            timeStamp: oneHour * 4,
+          },
+          {
+            value: blue,
+            timeStamp: oneHour,
+          },
+          {
+            value: red,
+            timeStamp: oneHour,
+          },
+          {
+            value: green,
+            timeStamp: oneHour * 2,
+          },
+          {
+            value: red,
+            timeStamp: oneHour,
+          },
+          {
+            value: red,
+            timeStamp: oneHour * 4,
+          },
+          {
+            value: red,
+            timeStamp: oneHour * 0.5,
+          },
+          {
+            value: blue,
+            timeStamp: oneHour * 2,
+          },
+        ];
+
+      let lastDate = Date.UTC(2022, 08, 21);
+
+      const processedData = data.map((el) => {
+        const x = lastDate,
+          x2 = lastDate + el.timeStamp,
+          point = {
+            x: x,
+            x2: x2,
+            y: 0,
+            color: el.value,
+          };
+        lastDate = point.x2;
+
+        return point;
+      });
+
+      Highcharts.chart("container", {
+        chart: {
+          type: "xrange",
+        },
+        xAxis: {
+          type: "datetime",
+        },
+        yAxis: {
+          visible: false,
+        },
+        series: [
+          {
+            borderRadius: 0,
+            data: processedData,
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>

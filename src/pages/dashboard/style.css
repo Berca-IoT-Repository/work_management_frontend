@@ -1,0 +1,25 @@
+.dot-red {
+  height: 20px;
+  width: 20px;
+  background-color: #fa7d6f;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-blue {
+  height: 20px;
+  width: 20px;
+  background-color: #72baeb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.react-datepicker__view-calendar-icon input {
+  padding-left: 30px;
+  font-size: 18px;
+}
+
+.react-datepicker__calendar-icon {
+  height: 20px;
+  margin-top: 2px;
+}

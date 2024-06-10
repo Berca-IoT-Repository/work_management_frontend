@@ -1,0 +1,15 @@
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+  width: 100%;
+  border: 1px solid #eae6e6;
+}
+
+.react-datepicker__calendar-icon {
+  margin-top: 2px;
+}
+
+.error .SingleDatePicker .DateInput_input {
+  border: 1px solid #bf2155;
+}
